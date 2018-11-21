@@ -1,7 +1,7 @@
 {
-  "name": "fbi-project-vue-admin",
-  "version": "1.3.0",
-  "description": "Admin project template using Vue.js & ElementUI",
+  "name": "fbi-project-vue-admin-sub",
+  "version": "1.0.0",
+  "description": "Template of subsystem for vue-admin",
   "scripts": {},
   "dependencies": {
     "@peak-stone/vue-admin": "^1.2.0",
@@ -67,7 +67,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fbi-templates/fbi-project-vue-admin.git"
+    "url": "git+https://github.com/fbi-templates/fbi-project-vue-admin-sub.git"
   },
   "keywords": [
     "vuejs",
@@ -83,9 +83,9 @@
   "author": "neikvon",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fbi-templates/fbi-project-vue-admin/issues"
+    "url": "https://github.com/fbi-templates/fbi-project-vue-admin-sub/issues"
   },
-  "homepage": "https://github.com/fbi-templates/fbi-project-vue-admin#readme",
+  "homepage": "https://github.com/fbi-templates/fbi-project-vue-admin-sub#readme",
   "fbi": {
     "template": {
       "name": "fbi-project-vue-admin-sub"
