@@ -1,0 +1,35 @@
+[{
+    "name": "users",
+    "schema": {
+      "id": "{{random.uuid}}",
+      "username": "{{internet.userName}}",
+      "password": "{{internet.password}}",
+      "email": "{{internet.email}}",
+      "createdAt": "{{date.past}}",
+      "status": "{{random.boolean}}",
+      "roles": ["admin"],
+      "token": "{{random.uuid}}"
+    },
+    "number": 100
+  },
+  {
+    "name": "roles",
+    "schema": {
+      "id": "{{random.uuid}}",
+      "name": "admin"
+    },
+    "number": 1
+  },
+  {
+    "name": "articles",
+    "schema": {
+      "id": "{{random.uuid}}",
+      "title": "{{random.words}}",
+      "author": "{{name.findName}}",
+      "timestamp": "{{date.recent}}",
+      "content": "{{lorem.paragraphs}}",
+      "content_short": "{{lorem.paragraph}}"
+    },
+    "number": 1000
+  }
+]

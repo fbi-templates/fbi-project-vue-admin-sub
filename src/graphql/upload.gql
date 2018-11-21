@@ -1,0 +1,9 @@
+mutation upload($file: Upload!, $data: UploadDataInput!) {
+  singleUpload(file: $file, data: $data) {
+    id
+    path
+    filename
+    mimetype
+    encoding
+  }
+}
