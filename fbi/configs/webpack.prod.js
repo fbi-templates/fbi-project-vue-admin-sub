@@ -12,29 +12,23 @@ const postcssConfig = require('./postcss.config')
 const opts = ctx.options
 const root = process.cwd()
 const appName = opts.appName
+const hash = {
+  hash: opts.assetsHash ? '.[hash:8]' : '',
+  contenthash: opts.assetsHash ? '.[contenthash:8]' : ''
+}
 
 const config = {
   mode: 'production',
   entry: path.join(root, opts.paths.build.entry),
   output: {
     path: path.join(root, opts.server.root),
-    filename: `js/${appName}-app.[contenthash:8].js`,
-    chunkFilename: `js/${appName}-[name].[contenthash:8].js`,
+    filename: `js/${appName}-app${hash.contenthash}.js`,
+    chunkFilename: `js/${appName}-[name]${hash.contenthash}.js`,
     publicPath: opts.paths.build.publicPath,
     library: `${appName}App`,
     libraryTarget: 'umd'
   },
-  externals: [
-    {
-      vue: 'Vue'
-    },
-    {
-      vuex: 'Vuex'
-    },
-    {
-      'vue-router': 'VueRouter'
-    }
-  ],
+  externals: opts.externals || [],
   // For development, use cheap-module-eval-source-map. For production, use cheap-module-source-map.
   devtool: ctx.options.sourcemap ? ctx.options.sourcemap[1] : false,
   optimization: {
@@ -92,8 +86,8 @@ const config = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: `css/${appName}-app.[hash:8].css`,
-      chunkFilename: `css/${appName}-[name].[hash:8].css`
+      filename: `css/${appName}-app${hash.hash}.css`,
+      chunkFilename: `css/${appName}-[name]${hash.hash}.css`
     }),
     // keep module.id stable when vender modules does not change
     new webpack.HashedModuleIdsPlugin(),

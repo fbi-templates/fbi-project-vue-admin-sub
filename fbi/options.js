@@ -84,6 +84,14 @@ module.exports = {
   // dll plugin配置
   dllEntries: ['vue', 'vuex', 'vue-router', 'element-ui'],
 
+  // 不打包的外部依赖
+  externals: {
+    vue: 'Vue',
+    vuex: 'Vuex',
+    'vue-router': 'VueRouter',
+    'element-ui': 'ElementUI'
+  },
+
   // 指定Webpack不解析的模块（用于提高构建速度）
   // Docs: https://webpack.js.org/configuration/module/#module-noparse
   noParse: content => {
@@ -92,7 +100,7 @@ module.exports = {
 
   // 若要使用VSCode断点调试功能，请务必选择使用 cheap-module-source-map 或 source-map
   // [开发环境, 生产环境]
-  sourcemap: ['cheap-module-source-map', 'source-map'],
+  sourcemap: ['cheap-module-source-map', ''],
 
   // 静态检查
   lint: {
@@ -145,5 +153,7 @@ module.exports = {
       // https://github.com/ai/browserslist#queries
       autoprefixer: targets
     }
-  }
+  },
+
+  assetsHash: true
 }
