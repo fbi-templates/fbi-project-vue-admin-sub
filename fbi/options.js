@@ -41,7 +41,7 @@ module.exports = {
     mock: {
       // 是否开启
       enable: true,
-      // API 前缀，开发时应与 data.dev.__APIROOT__ 的值相同
+      // API 前缀，开发时应与 data.dev.APIROOT 的值相同
       prefix: '/mock-api'
     }
   },
@@ -50,24 +50,24 @@ module.exports = {
   data: {
     // 所有环境
     all: {
-      // 网站title
-      __SITE_TITLE__: 'Admin System'
+      SITE_TITLE: 'Admin System',
+      APP_NAME: appName
     },
     // 开发环境 `fbi s`
     dev: {
-      APP_NAME: appName,
-      __APIROOT__: '/mock-api',
-      PROJECTS_API: 'http://localhost:5000/graphql/projects'
+      APIROOT: '/mock-api',
+      GRAPHQL_ENDPOINT: 'http://localhost:5000/graphql/projects',
+      ROUTE_BASE: '/'
     },
     // 测试环境 `fbi b -t`
     test: {
-      APP_NAME: appName,
-      PROJECTS_API: 'http://localhost:5000/graphql/projects'
+      GRAPHQL_ENDPOINT: 'http://localhost:5000/graphql/projects',
+      ROUTE_BASE: '/'
     },
     // 生产环境 `fbi b`
     prod: {
-      APP_NAME: appName,
-      PROJECTS_API: 'http://localhost:5000/graphql/projects'
+      GRAPHQL_ENDPOINT: 'http://localhost:5000/graphql/projects',
+      ROUTE_BASE: '/'
     }
   },
 

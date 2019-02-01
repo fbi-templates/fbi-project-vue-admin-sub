@@ -6,10 +6,10 @@
 
     1. 在 `server.mock.prefix` 配置 Mock 服务前缀
 
-    1. 在 `data.all.__SITE_TITLE__` 配置代码里使用的前缀别名(应
+    1. 在 `data.all.APIROOT` 配置代码里使用的前缀别名(应
        与`server.mock.prefix`配置相同的值)
 
-1.  `src/utils/ajax.js L5` 使用了`__SITE_TITLE__`这个别名
+1.  `src/utils/ajax.js L5` 使用了`APIROOT`这个别名
 
 ## 随机数据
 

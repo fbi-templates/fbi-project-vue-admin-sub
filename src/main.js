@@ -1,5 +1,6 @@
-import vueAdmin from '@peak-stone/vue-admin'
-import { routes, langs, clients } from './configs/'
+// import vueAdmin from '@peak-stone/vue-admin'
+import { initApp, startApp } from '@peak-stone/vue-admin'
+import configs from './configs/'
 
 const app = {
   id: `${APP_NAME}`,
@@ -9,10 +10,25 @@ const app = {
   }
 }
 
-vueAdmin(routes, langs, app)
-  .then(({ Vue, addApolloClients }) => {
+const {
+  apolloProvider,
+  addApolloClients,
+  store,
+  router,
+  Layout,
+  i18nUpdate
+} = initApp({
+  ...configs,
+  app,
+  routerConfig: {
+    mode: 'history',
+    base: ROUTE_BASE
+  }
+})
+
+startApp()
+  .then(({ Vue }) => {
     Vue.prototype.$appName = `${APP_NAME}`
-    addApolloClients(clients)
   })
   .catch(err => {
     console.error(err)
